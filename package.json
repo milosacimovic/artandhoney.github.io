@@ -1,0 +1,19 @@
+{
+  "name": "artandhoney",
+  "version": "1.0.0",
+  "description": "Art & Honey website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artandhoney/artandhoney.git"
+  },
+  "author": "Milos Acimovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artandhoney/artandhoney/issues"
+  },
+  "homepage": "https://github.com/artandhoney/artandhoney#readme"
+}
