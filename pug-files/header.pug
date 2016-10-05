@@ -1,0 +1,20 @@
+//output:../html-files/header.html, pretty:true
+
+header.masthead
+  .logo
+    a(href='index.html')
+      .logo-img
+  nav#site-navigation.stick.main-navigation(role='navigation')
+    button.menu-toggle(aria-controls='primary-menu', aria-expanded='false') ☰
+    .menu-main-menu-container
+      ul#primary-menu.nav-menu
+        li.menu-item
+          a(data-scroll href='#workshops') Radionice
+        li.menu-item
+          a(data-scroll href='#event') Događaj
+        li.menu-item
+          a(data-scroll href='#gift') Poklon
+        li.menu-item
+          a(data-scroll href='#bootique') Bootique
+        li.menu-item
+          a(data-scroll href='#contact') Kontakt

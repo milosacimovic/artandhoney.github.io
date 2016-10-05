@@ -1,0 +1,18 @@
+//output:../index.html, pretty:true
+doctype html
+html(lang='en-US')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Art & Honey
+    meta(name='description', content='Art & Honey web page')
+  body
+    #container
+      include ../html-files/header.html
+      include ../html-files/main.html
+      include ../html-files/footer.html
+
+    script(src="http://localhost:3000/static/index.bundle.js" type="text/javascript")
+    script(src="http://localhost:3000/src/js/modules/jquery.min.js" type="text/javascript")
+    script(src="http://localhost:3000/src/js/modules/smoothscroll.js" type="text/javascript")
+    script(src="http://localhost:3000/src/js/modules/navigation.js" type="text/javascript")

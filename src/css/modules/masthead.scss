@@ -1,0 +1,18 @@
+/*--------------------------------------------------------------
+Header styles minus menu
+--------------------------------------------------------------*/
+
+.masthead {
+    background: #f5b521;
+    padding-top: 0.5em;
+    position: fixed;
+    width: 100%;
+}
+
+@media screen and (min-width: 50em) {
+    .masthead {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
