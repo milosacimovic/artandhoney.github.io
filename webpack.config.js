@@ -1,22 +1,35 @@
 var path = require('path')
 var webpack = require('webpack')
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+if(process.env.NODE_ENV === 'production'){
+  console.log('in production mode')
+}else{
+  console.log('in development mode')
+}
 
+function getEntrySources(sources) {
+    if (process.env.NODE_ENV !== 'production') {
+        sources.push('webpack-hot-middleware/client');
+    }
 
+    return sources;
+}
 
 module.exports = {
   devtool: 'source-map',
-  entry:{
-    index: ['./src/js/index.js','webpack-hot-middleware/client'],
-  },
+  entry:getEntrySources(['./src/js/index.js']),
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'static'),
     filename: '[name].bundle.js',
-    publicPath: 'http://localhost:3000/static'
+    publicPath: process.env.NODE_ENV === 'production' ? 'static/' :'http://localhost:3000/static/'
   },
   plugins:[
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new ExtractTextPlugin("styles.css", {
+            allChunks: true
+        })
   ],
   module:{
     loaders: [
@@ -25,10 +38,9 @@ module.exports = {
         include: path.join(__dirname, 'src'),
         loaders: [
           'style',
-          'css',
+          process.env.NODE_ENV === 'production' ? ExtractTextPlugin.extract('css') : 'css',
           'autoprefixer?browsers=last 3 versions',
-          'sass?outputStyle=expanded'
-        ]
+          'sass?outputStyle=expanded']
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
